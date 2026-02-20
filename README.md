@@ -2,32 +2,63 @@
 
 React-based frontend service.
 
-Release version 1.0.0
+Release version 1.0.0  
 Hotfix: corrected minor typo
 
-## Git Flow Branch Interaction
+---
 
-This project follows the Git Flow model.
+## Git Workflow and Branching Strategy
 
-Branch structure:
+This project follows the Git Flow branching model to manage development, releases, and production fixes in a structured way.
 
-- main: production-ready code
-- develop: integration branch for development
-- feature/*: branched from develop and merged back into develop
-- release/*: branched from develop and merged into main
-- hotfix/*: branched from main and merged into both main and develop
+### Branch Types
 
-Workflow summary:
+- **main**
+  - Production-ready code.
+  - Only stable and tested code is merged into this branch.
+  - Protected to prevent direct pushes.
 
-feature/* → develop → release/* → main → develop  
-hotfix/* → main → develop
+- **develop**
+  - Integration branch for active development.
+  - All feature branches are merged here before release.
+
+- **feature/\***
+  - Created from `develop`.
+  - Used for implementing new features.
+  - Merged back into `develop` after completion.
+
+- **release/\***
+  - Created from `develop` when preparing a production release.
+  - Merged into `main` once validated.
+  - After merging into `main`, changes are synced back to `develop`.
+
+- **hotfix/\***
+  - Created from `main` to fix urgent production issues.
+  - Merged into `main` to resolve the issue.
+  - Then merged back into `develop` to keep branches consistent.
+
+---
+
+## Branch Interaction Summary
+
+Feature workflow:
+feature/* → develop
+
+Release workflow:
+develop → release/* → main → develop
+
+Hotfix workflow:
+main → hotfix/* → main → develop
+
+This structured branching strategy ensures production stability while enabling continuous development.
+
+---
 
 ## Design Decisions and Rationale
 
-- Microservices architecture with separate repositories enables independent deployment and scalability.
-- Git Flow was chosen because it provides structured release management.
-- Feature branches allow isolated development.
-- Release branches ensure production stability.
+- A microservices architecture with separate repositories allows independent development and deployment.
+- Git Flow was selected because it provides a clear and controlled release lifecycle.
+- Feature branches isolate development work and reduce integration risk.
+- Release branches stabilize code before production deployment.
 - Hotfix branches allow urgent fixes without disrupting ongoing development.
-- Branch protection rules prevent direct pushes to main, improving code quality and safety.
-
+- Branch protection rules enforce code review and prevent accidental changes to production.
