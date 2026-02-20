@@ -6,4 +6,4 @@ React-based frontend service.
 
 TBD
 
-Feature: Add health check endpoint
+Release version 1.0.0
