@@ -7,3 +7,4 @@ React-based frontend service.
 TBD
 
 Release version 1.0.0
+Hotfix: corrected minor typo
