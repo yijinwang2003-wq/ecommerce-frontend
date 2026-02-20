@@ -22,3 +22,12 @@ Workflow summary:
 feature/* → develop → release/* → main → develop  
 hotfix/* → main → develop
 
+## Design Decisions and Rationale
+
+- Microservices architecture with separate repositories enables independent deployment and scalability.
+- Git Flow was chosen because it provides structured release management.
+- Feature branches allow isolated development.
+- Release branches ensure production stability.
+- Hotfix branches allow urgent fixes without disrupting ongoing development.
+- Branch protection rules prevent direct pushes to main, improving code quality and safety.
+
